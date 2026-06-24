@@ -1146,7 +1146,7 @@ impl App {
             .map(|mut summary| {
                 summary
                     .topics
-                    .sort_by(|a, b| b.messages_synced.cmp(&a.messages_synced));
+                    .sort_by_key(|t| std::cmp::Reverse(t.messages_synced));
                 summary
             })
             .collect();
@@ -1843,7 +1843,7 @@ impl App {
             .map(|mut summary| {
                 summary
                     .topics
-                    .sort_by(|a, b| b.messages_synced.cmp(&a.messages_synced));
+                    .sort_by_key(|t| std::cmp::Reverse(t.messages_synced));
                 summary
             })
             .collect();
